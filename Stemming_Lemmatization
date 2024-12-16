@@ -1,0 +1,28 @@
+import nltk
+nltk.download("wordnet")
+
+from nltk.stem import PorterStemmer
+
+stemmer = PorterStemmer()
+
+# örnek kelimeler giricem 
+words = ["cars", "forevers", "succesfully", "runs", "went", "never", "love", "again", "lovers"]
+
+stems = [stemmer.stem(w) for w in words]
+print("stems is coming ", stems)
+
+# %% Lemma
+
+from nltk.stem import WordNetLemmatizer
+
+lemmatizer = WordNetLemmatizer()
+
+# örnek kelimeler yine same
+words = ["cars", "forevers", "succesfully", "runs", "went", "never", "love", "again", "lovers"]
+
+lemmas_v = [lemmatizer.lemmatize(w, pos = "v") for w in words]
+lemmas_n = [lemmatizer.lemmatize(w, pos = "n") for w in words]
+# v=verb, n=name
+
+print("lemma is coming", lemmas_v)
+print("lemma is coming", lemmas_n)
