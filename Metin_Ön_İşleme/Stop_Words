@@ -1,0 +1,35 @@
+import nltk
+
+from nltk.corpus import stopwords
+
+nltk.download("stopwords")
+
+# stop word liste yükleme
+stop_words_eng = set(stopwords.words("english"))
+
+# ingilizce için örnek metin
+text = "This is an example of words from a text document."
+filtered_words = [word for word in text.split() if word.lower() not in stop_words_eng]
+print("filtred_words: ", filtered_words)
+
+# ingilizce için örnek metin 2
+text = "i am A human. Just kidding, I'm an AI and i tricked you beautifully."
+filtered_words = [word for word in text.split() if word.lower() not in stop_words_eng]
+print("filtred_words: ", filtered_words)
+
+# stop word liste yükleme(türkçe için)
+stop_words_tr = set(stopwords.words("turkish"))
+
+# türkçe için örnek metin
+text = "Hello dünya ve görüşürüz Dünya"
+filtered_words = [word for word in text.split() if word.lower() not in stop_words_tr]
+print("filtred_words: ", filtered_words)
+
+# %% şimdi burada kendimiz kaldıracağımız kelimeleri manuel şekilde çekicem
+
+turkish_stopwords = set (["ve", "bir", "bu", "için", "ile"])
+
+# Örnek metin yazalım(yukarıdakinin türkçesi (search et see))
+text = "Bu bir örnek metin Ve stop words'leri temizlemek için kullanılıyor."
+filtered_words = [word for word in text.split() if word.lower() not in turkish_stopwords]
+print("filtred_words: ", filtered_words)
