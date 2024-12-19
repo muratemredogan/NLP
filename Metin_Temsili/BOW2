@@ -1,11 +1,10 @@
 import pandas as pd 
-import os
 from sklearn.feature_extraction.text import CountVectorizer
 import re
 from collections import Counter
 
 # Çalışma dizinini ayarla
-os.chdir(r"D:\for NLP\NLP")
+
 df = pd.read_csv("IMDB Dataset.csv")
 # df = df.head(1000)
 
