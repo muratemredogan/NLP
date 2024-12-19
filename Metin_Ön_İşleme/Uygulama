@@ -1,0 +1,45 @@
+# metinlerdeki fazla boşlukları kaldırmak için
+text = "Hello, world! In 2024, artificial intelligence is reshaping technology; let's embrace it with love and passion."
+
+
+cleaned_text1 = " ".join(text.split())
+
+print(cleaned_text1)
+
+#  buyuk -> kucuk harf cevrimi
+
+
+cleaned_text2 = cleaned_text1.lower()
+print(cleaned_text2)
+
+#  noktalama işartelerini kaldırmak için
+
+import string
+
+
+cleaned_text3= cleaned_text2.translate(str.maketrans("","", string.punctuation))
+
+print(cleaned_text3)
+
+#  özel karakterleri kaldırma için
+
+import re
+
+
+cleaned_text4 = re.sub(r"[^A-Za-z0-9\s]","", cleaned_text3)
+# burada "ı" yı da kaldıracak :)
+print(cleaned_text4)
+
+#  yazım hatalarını düzeltme kısmı (ingilizce çalışır abi bu kod)
+
+from textblob import TextBlob
+
+
+cleaned_text5 = str(TextBlob(cleaned_text4).correct())
+print(cleaned_text5)
+
+# html yada url etiketlerini kaldırır
+from bs4 import BeautifulSoup
+
+cleaned_text6 = BeautifulSoup(cleaned_text5, "html.parser").get_text()
+print(cleaned_text6)
