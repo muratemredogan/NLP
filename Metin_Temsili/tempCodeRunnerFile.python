@@ -1,0 +1,29 @@
+import pandas as pd 
+from sklearn.feature_extraction.text import CountVectorizer
+import re
+from collections import Counter
+
+# Çalışma dizinini ayarla
+import os
+os.chdir(r"D:\for NLP\NLP")
+
+
+df = pd.read_csv("IMDB Dataset.csv")
+df = df.head(1000)
+
+# metin verileri alalım
+documents = df["review"]
+labels = df["sentiment"] # pozitif veya negatif
+
+# metin temizliği fonksiyonu
+def clean_text(text):
+    text = text.lower()
+    text = re.sub(r'<.*?>', '', text) # html tag temizliği
+    text = re.sub(r'[^\w\s]', '', text) # noktalama işaretleri
+    text = re.sub(r'\d', '', text) # rakamlar
+    text = re.sub(r'\n', '', text) # satır sonu karakteri
+    text = " ".join([word for word in text.split() if len(word) > 2]) # tek ve çift karakterler yani a ve an gibi
+    return text
+
+# metin temizleme
+cleaned_documents = [clean_text(doc) for doc in documents]

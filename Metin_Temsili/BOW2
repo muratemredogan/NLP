@@ -6,7 +6,7 @@ from collections import Counter
 # Çalışma dizinini ayarla
 
 df = pd.read_csv("IMDB Dataset.csv")
-# df = df.head(1000)
+df2 = df.head(1000)
 
 # metin verileri alalım
 documents = df["review"]
