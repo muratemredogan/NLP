@@ -43,3 +43,72 @@ from bs4 import BeautifulSoup
 
 cleaned_text6 = BeautifulSoup(cleaned_text5, "html.parser").get_text()
 print(cleaned_text6)
+
+import nltk
+nltk.data.path.append("D:\\nltk_data")  # Kendi nltk_data dizin yolunuzu girin.
+
+# Gerekli kaynakları indiriyor 
+nltk.download('punkt_tab')
+nltk.download('punkt')
+nltk.download('wordnet')
+nltk.download('stopwords')
+
+print("Tüm kaynaklar başarıyla indirildi!")
+
+
+# kelimeleri tokenlerine ayırıcam
+word_tokens = nltk.word_tokenize(cleaned_text6)
+
+# cümle tokenization ı
+sentence_tokens = nltk.sent_tokenize(cleaned_text6)
+
+# Kelimeleri alt alta yazdır
+print("Word Tokens:")
+for word in word_tokens:
+    print(word)
+
+# Cümleleri alt alta yazdır
+print("\nSentence Tokens:")
+for sentence in sentence_tokens:
+    print(sentence)
+
+
+import nltk
+nltk.download("wordnet")
+
+from nltk.stem import PorterStemmer
+
+stemmer = PorterStemmer()
+
+
+
+stems = [stemmer.stem(w) for w in word_tokens]
+print("stems is coming ", stems)
+
+# Lemma
+
+from nltk.stem import WordNetLemmatizer
+
+lemmatizer = WordNetLemmatizer()
+
+
+
+lemmas_v = [lemmatizer.lemmatize(w, pos = "v") for w in word_tokens]
+lemmas_n = [lemmatizer.lemmatize(w, pos = "n") for w in word_tokens]
+# v=verb, n=name
+
+print("lemma is coming", lemmas_v)
+print("lemma is coming", lemmas_n)
+
+import nltk
+
+from nltk.corpus import stopwords
+
+nltk.download("stopwords")
+
+# stop word liste yükleme
+stop_words_eng = set(stopwords.words("english"))
+
+# ingilizce için örnek metin
+filtered_words = [word for word in cleaned_text6.split() if word.lower() not in stop_words_eng]
+print("filtred_words: ", filtered_words)
