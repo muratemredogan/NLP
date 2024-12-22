@@ -11,6 +11,7 @@ Bu repository, doğal dil işleme (NLP) alanında temel görevlerin uygulanması
 ## Kullanım
 
 Proje kapsamında örnek uygulamaları çalıştırabilir ve kendi NLP projelerinizi geliştirebilirsiniz.
+IMDB Dataset e erişim şuanlık manueldir.(23.12.24)
 
 ## Gereksinimler
 
