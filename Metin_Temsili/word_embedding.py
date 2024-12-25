@@ -3,10 +3,17 @@ word embedding
     1) Word2Vec (Google)
     2) FastText (Facebook)
 """
+import gensim
+print(gensim.__version__)
 
 import pandas as pd 
-from gensim.models import Word2Vec, FastText
-from gensim.utils import simple_preprocess
+try:
+    from gensim.models import Word2Vec, FastText
+    from gensim.utils import simple_preprocess
+except ImportError as e:
+    print(f"Error importing gensim: {e}")
+    print("Please ensure gensim is installed correctly.")
+    exit(1)
 
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
