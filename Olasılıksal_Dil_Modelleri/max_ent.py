@@ -16,3 +16,5 @@ features = {word: (word in test_sentence.lower().split()) for word in ["love", "
 
 label = classifier.classify(features)
 print(label)
+
+# olasılıksal dil modelinin son alıştırması
