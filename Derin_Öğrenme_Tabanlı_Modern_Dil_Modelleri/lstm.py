@@ -149,5 +149,5 @@ def predict_next_word(seed_text, next_words):
     
     return seed_text
 
-seed_text = "Kahvaltıdan sonra deniz"
+seed_text = "Kahvaltıdan sonra deniz "
 print(predict_next_word(seed_text, 7))
