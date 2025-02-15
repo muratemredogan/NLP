@@ -12,7 +12,7 @@ text = "I go to park to"
 input = tokenizer.encode(text, return_tensors="pt")
 
 # metin üretimi
-outputs = model.generate(inputs, max_length=20)
+outputs = model.generate(input, max_length=20)
 
 # sonucu decode etmemiz lazim
 generated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
