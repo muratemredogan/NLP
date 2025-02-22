@@ -66,3 +66,5 @@ from sklearn.metrics import confusion_matrix
 c_matrix = confusion_matrix(y_test, predictions)
 
 print("Accuracy:", 100*(sum(sum(c_matrix)) - c_matrix[1,0] - c_matrix[0,1])/sum(sum(c_matrix)))
+
+# https://raw.githubusercontent.com/mohitgupta-omg/Kaggle-SMS-Spam-Collection-Dataset-/master/spam.csv
