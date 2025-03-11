@@ -54,7 +54,8 @@ from sklearn.metrics import confusion_matrix, classification_report
 print(confusion_matrix(df["Positive"], df["sentiment"]))
 
 """
-[[ 1131  3636]
+bu tahminler uzun sürebilir
+[[ 1131  3636] 
  [  576 14657]]
 """
 print(classification_report(df["Positive"], df["sentiment"]))
