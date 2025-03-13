@@ -36,7 +36,7 @@ def get_top_n(predictions, n = 10):
     
     return top_n
  
-top_n = get_top_n(prediction, n=5)
+top_n = get_top_n(prediction, n=10)
 
 user_id = "2"
 print(f"Top 10 recommendation for user {user_id}")
